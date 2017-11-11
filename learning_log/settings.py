@@ -25,7 +25,7 @@ SECRET_KEY = 'k6506jso%d1w__#8#6!#the8h+7-o341lg)uab9ayw^!-a*zt7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['']
 
 
 # Application definition
@@ -61,7 +61,7 @@ ROOT_URLCONF = 'learning_log.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'learning_log/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -141,10 +141,10 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     DATABASES = {
         'default': dj_database_url.config(default='postgres://localhost')
     }
-    
+
     # Honor the 'X-Forwarded-Proto' header for request.is_secure().
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-    
+
     # Only allow heroku to host the project.
     ALLOWED_HOSTS = ['.herokuapp.com']
     DEBUG = False
